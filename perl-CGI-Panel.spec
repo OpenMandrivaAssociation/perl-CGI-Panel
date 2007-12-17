@@ -12,7 +12,6 @@ BuildRequires:	perl-devel
 BuildRequires:  perl(Apache::Session)
 BuildRequires:  perl(CGI)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 CGI::Panel allows applications to be built out of simple object-based
