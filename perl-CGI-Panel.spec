@@ -1,18 +1,20 @@
-%define real_name CGI-Panel
+%define upstream_name    CGI-Panel
+%define upstream_version 0.97
+
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 
 Summary:	CGI-Panel module for perl 
-Name:		perl-%{real_name}
-Version:	0.97
-Release: %mkrel 5
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%{real_name}
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/CGI/%{real_name}-%{version}.tar.bz2
-BuildRequires:	perl-devel
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/CGI/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildRequires:  perl(Apache::Session)
 BuildRequires:  perl(CGI)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 CGI::Panel allows applications to be built out of simple object-based
@@ -23,7 +25,7 @@ all that stuff because that is all handled for you leaving to you
 interact with a simple API.
 
 %prep
-%setup -q -n %{real_name}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 find . -type d -name CVS -exec rm -rf {} \; || :
 
 %build
@@ -44,7 +46,3 @@ rm -rf %{buildroot}
 %{perl_vendorlib}/CGI/Panel
 %{perl_vendorlib}/CGI/Panel.pm
 %{_mandir}/*/*
-
-
-
-
